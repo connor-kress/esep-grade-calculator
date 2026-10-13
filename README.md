@@ -1,6 +1,6 @@
 # ESEP Grade Calculator
 
-Go library that calculates a student's final letter grade from weighted averages of their assignment, exam, and essay grades.
+Go library that calculates a student's final letter grade (or pass/fail result) from weighted averages of their assignment, exam, and essay grades.
 
 ## Files
 
@@ -22,16 +22,16 @@ No external dependencies.
 ## Example
 
 ```go
-gradeCalculator := NewGradeCalculator()
+gradeCalculator := NewGradeCalculator(false)
 gradeCalculator.AddGrade("example assignment", 100, Assignment)
 gradeCalculator.AddGrade("example exam", 80, Exam)
 gradeCalculator.AddGrade("example essay", 90, Essay)
 letterGrade := gradeCalculator.GetFinalGrade()
 ```
 
-- `NewGradeCalculator()`: creates an empty calculator.
+- `NewGradeCalculator(passFail)`: creates an empty calculator; `true` for pass/fail, `false` for letter grades.
 - `AddGrade(name, grade, gradeType)`: records a grade of type `Assignment`, `Exam`, or `Essay`.
-- `GetFinalGrade()`: returns `"A"`, `"B"`, `"C"`, `"D"`, or `"F"`.
+- `GetFinalGrade()`: returns `"A"`, `"B"`, `"C"`, `"D"`, or `"F"`; in pass/fail mode, `"Pass"` (C or better) or `"Fail"`.
 
 ## Tests
 
